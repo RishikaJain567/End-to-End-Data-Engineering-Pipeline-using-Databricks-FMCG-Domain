@@ -1,7 +1,7 @@
 # 🏭 End-to-End Data Engineering Pipeline using Databricks — FMCG Domain
 
 ## 📋 Overview
-An end-to-end ETL pipeline built on **Databricks** for a two-company FMCG group (a parent company and its child company). The **Medallion Architecture** (Bronze → Silver → Gold) 🥉🥈🥇 is applied to the **child company's** raw sales data — ingested from **Amazon S3** ☁️ and processed through cleansing, validation, and transformation in PySpark and SQL. The resulting child Gold-layer tables are then **merged with the parent company's existing Gold-layer data** 🔗, producing a single unified, denormalized Gold dataset that powers business dashboards 📊 and natural-language querying via **Databricks Genie** 🧞.
+An end-to-end ETL pipeline built on **Databricks** for a two-company FMCG group (a parent company and its child company). The **Medallion Architecture** (Bronze → Silver → Gold) 🥉🥈🥇 is applied to the **child company's** raw sales data — ingested from **Amazon S3** ☁️ and processed through cleansing, validation, and transformation in PySpark and SQL. The resulting child Gold-layer tables are then **merged with the parent company's existing Gold-layer data** 🔗, producing a single unified, denormalized Gold dataset that powers **dashboards built directly in Databricks** 📊 and natural-language querying via **Databricks Genie** 🧞.
 
 ## 🏗️ Architecture
 ```
@@ -20,7 +20,7 @@ An end-to-end ETL pipeline built on **Databricks** for a two-company FMCG group 
 🔗  Merge with Parent Company Gold Data  →  Unified Gold dataset
       │
       ▼
-📊  Power BI Dashboards  ·  🧞  Databricks Genie (NL Querying)
+📊  Databricks Dashboards  ·  🧞  Databricks Genie (NL Querying)
 
 ⏰  Entire flow orchestrated & scheduled via Databricks Jobs & Pipelines
 ```
@@ -31,6 +31,7 @@ An end-to-end ETL pipeline built on **Databricks** for a two-company FMCG group 
 - 🗄️ **SQL** — querying and Gold-layer table design
 - ☁️ **Amazon S3** — raw data storage
 - 🌊 **Delta Lake** — Bronze/Silver/Gold storage format
+- 📊 **Databricks Dashboards** — built natively in Databricks for business reporting
 - 🧞 **Databricks Genie** — natural-language querying for business stakeholders
 
 ## ✅ What This Pipeline Does
@@ -39,7 +40,7 @@ An end-to-end ETL pipeline built on **Databricks** for a two-company FMCG group 
 - 🔗 Merges the child company's Gold-layer output with the **parent company's** Gold-layer data to produce one centralized, unified dataset
 - ⚙️ Automates end-to-end execution using Databricks Jobs orchestration
 - ⏰ Configured to run on a **scheduled basis** using Databricks Jobs & Pipelines, enabling automated, recurring refreshes without manual intervention
-- 📦 Delivers a denormalized, merged Gold-layer table designed for direct BI consumption and natural-language queries
+- 📦 Delivers a denormalized, merged Gold-layer table powering native Databricks dashboards and natural-language queries via Genie
 
 ## 📂 Repository Structure
 ```
@@ -55,10 +56,10 @@ An end-to-end ETL pipeline built on **Databricks** for a two-company FMCG group 
 2. ☁️ Upload source data to your Amazon S3 bucket (or use the sample data in `Dataset/`)
 3. ⚙️ Configure your Databricks workspace and S3 connection details in `setup/`
 4. ▶️ Run the notebooks in `Dimension-Data-Processing/` and `Fact-Data-Processing/` in sequence to build the Silver and Gold layers
-5. 🔌 Connect Power BI or Databricks Genie to the Gold-layer tables for reporting
+5. 🔌 Build dashboards directly in Databricks or query the Gold-layer tables via Databricks Genie for natural-language reporting
 
 ## 🎯 Key Outcomes
 - 🏢 Onboarded the child company's data onto the parent company's Gold-layer model through a governed, repeatable Medallion pipeline
 - ✨ Improved data quality and consistency through systematic validation at each Medallion layer before merging
-- 🔍 Enabled a single unified view across parent and child company data for BI and self-service, natural-language business queries via Databricks Genie
+- 🔍 Enabled a single unified view across parent and child company data for native Databricks BI reporting and self-service, natural-language business queries via Databricks Genie
 - ⏰ Eliminated manual pipeline runs by scheduling automated, recurring execution through Databricks Jobs & Pipelines
